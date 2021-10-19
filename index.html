@@ -33,98 +33,107 @@
   </head>
   <body>
     <div class="container">
-      <section class="section1">
-        <form class="search-form" id="search-form" autocomplete="off">
-          <div class="search-wrapper">
-            <button type="submit" id="search-btn">
-              <i class="fas fa-search"></i>
-            </button>
-            <input
-              type="text"
-              placeholder="enter city..."
-              class="search-field"
-              id="search-query"
-            />
-          </div>
-        </form>
-        <h1 id="city-name">City Name</h1>
-        <div id="current-location-wrapper">
-          <div id="current-location">
-            <i class="fas fa-map-marker-alt" id="location-icon"></i>
-            <span id="my-location">My location</span>
-          </div>
-        </div>
-        <div class="current-temperature">
-          <h2 id="current-temperature">19</h2>
-          <span class="units">
-            <a href="#" class="selected-unit" id="celsius">ºC</a>
-            |
-            <a href="#" id="farenheit">ºF</a>
-          </span>
-        </div>
-        <div class="row current-weather-info">
-          <div class="col-6">
-            <div class="current-weather">
-              <i class="fas fa-cloud"></i>
-              <span id="current-weather">Current weather</span>
+      <div class="weather-app-wrapper">
+        <section class="section1">
+          <form class="search-form" id="search-form" autocomplete="off">
+            <div class="search-wrapper">
+              <button type="submit" id="search-btn">
+                <i class="fas fa-search"></i>
+              </button>
+              <input
+                type="text"
+                placeholder="enter city..."
+                class="search-field"
+                id="search-query"
+              />
+            </div>
+          </form>
+          <h1 id="city-name">City Name</h1>
+          <div id="current-location-wrapper">
+            <div id="current-location">
+              <i class="fas fa-map-marker-alt" id="location-icon"></i>
+              <span id="my-location">My location</span>
             </div>
           </div>
-          <div class="col-6">
-            <div class="current-weather-details">
-              <p id="humidity">Current humidity</p>
-              <p id="wind-speed">Current wind speed</p>
-            </div>
+          <div class="current-temperature">
+            <h2 id="current-temperature">19</h2>
+            <span class="units">
+              <a href="#" class="selected-unit" id="celsius">ºC</a>
+              |
+              <a href="#" id="farenheit">ºF</a>
+            </span>
           </div>
-        </div>
-        <div class="local-date">Current local date and time</div>
-        <hr />
-      </section>
-      <section class="section2">
-        <div class="px-4">
-          <div class="row gx-5">
-            <div class="col next-day">
-              <div class="day-of-week">Sat.</div>
-              <i class="fas fa-cloud weather-icon"></i>
-              <div class="row min-max-temp">
-                <div class="col-6 min-temp">20º</div>
-                <div class="col-6 max-temp">26º</div>
+          <div class="row current-weather-info">
+            <div class="col-6">
+              <div class="current-weather">
+                <i class="fas fa-cloud"></i>
+                <span id="current-weather">Current weather</span>
               </div>
             </div>
-            <div class="col next-day">
-              <div class="day-of-week">Sun.</div>
-              <i class="fas fa-cloud weather-icon"></i>
-              <div class="row min-max-temp">
-                <div class="col-6 min-temp">20º</div>
-                <div class="col-6 max-temp">26º</div>
-              </div>
-            </div>
-            <div class="col next-day">
-              <div class="day-of-week">Mon.</div>
-              <i class="fas fa-cloud weather-icon"></i>
-              <div class="row min-max-temp">
-                <div class="col-6 min-temp">20º</div>
-                <div class="col-6 max-temp">26º</div>
-              </div>
-            </div>
-            <div class="col next-day">
-              <div class="day-of-week">Tue.</div>
-              <i class="fas fa-cloud weather-icon"></i>
-              <div class="row min-max-temp">
-                <div class="col-6 min-temp">20º</div>
-                <div class="col-6 max-temp">26º</div>
-              </div>
-            </div>
-            <div class="col next-day">
-              <div class="day-of-week">Wed.</div>
-              <i class="fas fa-cloud weather-icon"></i>
-              <div class="row min-max-temp">
-                <div class="col-6 min-temp">20º</div>
-                <div class="col-6 max-temp">26º</div>
+            <div class="col-6">
+              <div class="current-weather-details">
+                <p id="humidity">Current humidity</p>
+                <p id="wind-speed">Current wind speed</p>
               </div>
             </div>
           </div>
-        </div>
-      </section>
+          <div class="local-date">Current local date and time</div>
+          <hr />
+        </section>
+        <section class="section2">
+          <div class="px-4">
+            <div class="row gx-5">
+              <div class="col next-day">
+                <div class="day-of-week">Sat.</div>
+                <i class="fas fa-cloud weather-icon"></i>
+                <div class="row min-max-temp">
+                  <div class="col-6 min-temp">20º</div>
+                  <div class="col-6 max-temp">26º</div>
+                </div>
+              </div>
+              <div class="col next-day">
+                <div class="day-of-week">Sun.</div>
+                <i class="fas fa-cloud weather-icon"></i>
+                <div class="row min-max-temp">
+                  <div class="col-6 min-temp">20º</div>
+                  <div class="col-6 max-temp">26º</div>
+                </div>
+              </div>
+              <div class="col next-day">
+                <div class="day-of-week">Mon.</div>
+                <i class="fas fa-cloud weather-icon"></i>
+                <div class="row min-max-temp">
+                  <div class="col-6 min-temp">20º</div>
+                  <div class="col-6 max-temp">26º</div>
+                </div>
+              </div>
+              <div class="col next-day">
+                <div class="day-of-week">Tue.</div>
+                <i class="fas fa-cloud weather-icon"></i>
+                <div class="row min-max-temp">
+                  <div class="col-6 min-temp">20º</div>
+                  <div class="col-6 max-temp">26º</div>
+                </div>
+              </div>
+              <div class="col next-day">
+                <div class="day-of-week">Wed.</div>
+                <i class="fas fa-cloud weather-icon"></i>
+                <div class="row min-max-temp">
+                  <div class="col-6 min-temp">20º</div>
+                  <div class="col-6 max-temp">26º</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+      <div id="github-link">
+        <i class="fab fa-github"></i
+        ><a href="https://github.com/claradrt/weather-app" target="_blank"
+          >Open source code</a
+        >
+        by Clara Dérot
+      </div>
     </div>
     <script src="src/app.js"></script>
   </body>

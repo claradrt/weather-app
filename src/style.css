@@ -47,8 +47,13 @@ a:hover {
   margin: 10px auto;
   width: 50%;
   padding: 10px;
+}
+
+.weather-app-wrapper {
   border: 1px solid #ffffff;
   border-radius: 10px;
+  margin: 10px auto;
+  padding: 10px;
 }
 
 .section1 {
@@ -174,4 +179,18 @@ a:hover {
 
 #current-weather {
   text-transform: capitalize;
+}
+
+#github-link {
+  padding: 0px 10px;
+  font-family: "Dosis", "Helvetica", sans-serif;
+  font-size: 16px;
+}
+
+#github-link a {
+  text-decoration: underline;
+}
+
+.fa-github {
+  padding: 5px;
 }
