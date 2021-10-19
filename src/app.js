@@ -29,6 +29,13 @@ currentDateAndTime.innerHTML = formatDate(now);
 let unit = "metric";
 let temperature = document.querySelector("#current-temperature");
 
+displayCityInfo("Barcelona");
+
+function displayCityInfo(city) {
+  let cityWeatherApi = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=${unit}&appid=${apiKey}`;
+  axios.get(cityWeatherApi).then(displayWeatherDetails).catch(handleApiError);
+}
+
 function displayTemperature(response) {
   let localTemperature = Math.round(response.data.main.temp);
   temperature.innerHTML = `${localTemperature}`;
@@ -64,15 +71,14 @@ function displayWeatherDetails(response) {
 }
 
 function handleSearch(event) {
+  console.log(event);
   event.preventDefault();
   let input = document.querySelector("#search-query");
-  let cityWeatherApi = `https://api.openweathermap.org/data/2.5/weather?q=${input.value}&units=${unit}&appid=${apiKey}`;
-  axios.get(cityWeatherApi).then(displayWeatherDetails).catch(handleApiError);
+  displayCityInfo(input.value);
   input.value = "";
 }
 
 function handleApiError(err) {
-  debugger;
   if (err.response.status === 404) {
     alert("City not found");
   }
