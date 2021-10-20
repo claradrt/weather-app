@@ -1,4 +1,3 @@
-let currentDateAndTime = document.querySelector(".local-date");
 let apiKey = "d4b52f25cca475cc7e5c04f3d7f22761";
 
 function formatDate(date) {
@@ -24,18 +23,17 @@ function formatDate(date) {
 }
 
 let now = new Date();
+let currentDateAndTime = document.querySelector(".local-date");
 currentDateAndTime.innerHTML = formatDate(now);
 
+//GET AND DISPLAY WEATHER INFORMATION
 let unit = "metric";
-let temperature = document.querySelector("#current-temperature");
-
-displayCityInfo("Barcelona");
-
 function displayCityInfo(city) {
   let cityWeatherApi = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=${unit}&appid=${apiKey}`;
   axios.get(cityWeatherApi).then(displayWeatherDetails).catch(handleApiError);
 }
 
+let temperature = document.querySelector("#current-temperature");
 function displayTemperature(response) {
   let localTemperature = Math.round(response.data.main.temp);
   temperature.innerHTML = `${localTemperature}`;
@@ -102,8 +100,19 @@ currentLocation.addEventListener("click", handleCurrentLocation);
 let searchForm = document.querySelector("#search-form");
 searchForm.addEventListener("submit", handleSearch);
 
+//TEMPERATURE CONVERSIONS
 let celsius = document.querySelector("#celsius");
 let farenheit = document.querySelector("#farenheit");
+
+function convertCelsiusToFarenheit(temperature) {
+  let temperatureConverted = Math.round((temperature * 9) / 5 + 32);
+  return temperatureConverted;
+}
+
+function convertFarenheitToCelsius(temperature) {
+  let temperatureConverted = Math.round(((temperature - 32) * 5) / 9);
+  return temperatureConverted;
+}
 
 function handleCelsius(event) {
   event.preventDefault;
@@ -123,15 +132,9 @@ function handleFarenheit(event) {
   }
 }
 
-function convertCelsiusToFarenheit(temperature) {
-  let temperatureConverted = Math.round((temperature * 9) / 5 + 32);
-  return temperatureConverted;
-}
-
-function convertFarenheitToCelsius(temperature) {
-  let temperatureConverted = Math.round(((temperature - 32) * 5) / 9);
-  return temperatureConverted;
-}
-
 celsius.addEventListener("click", handleCelsius);
 farenheit.addEventListener("click", handleFarenheit);
+//
+
+displayCityInfo("Madrid");
+//navigator.geolocation.getCurrentPosition(handleUserPosition);
