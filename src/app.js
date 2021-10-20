@@ -66,6 +66,7 @@ function displayWeatherDetails(response) {
   displayWindSpeed(response);
   displayHumidity(response);
   displayCityName(response);
+  displayWeatherIcon(response);
 }
 
 function handleSearch(event) {
@@ -132,9 +133,19 @@ function handleFarenheit(event) {
   }
 }
 
+//Change weather icon based on weather
+let currentWeatherIcon = document.querySelector("#current-weather-icon");
+function displayWeatherIcon(response) {
+  let iconId = response.data.weather[0].icon;
+  currentWeatherIcon.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${iconId}@2x.png`
+  );
+}
+
+//
 celsius.addEventListener("click", handleCelsius);
 farenheit.addEventListener("click", handleFarenheit);
-//
 
 displayCityInfo("Madrid");
 //navigator.geolocation.getCurrentPosition(handleUserPosition);

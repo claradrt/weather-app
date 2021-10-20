@@ -43,6 +43,10 @@ a:hover {
   text-decoration: underline;
 }
 
+p {
+  margin: 1rem auto;
+}
+
 .container {
   margin: 10px auto;
   max-width: 600px;
@@ -113,11 +117,20 @@ a:hover {
 }
 
 .current-weather {
-  font-size: 30px;
+  width: fit-content;
+  text-align: center;
 }
 
 .current-weather-details {
   text-align: right;
+}
+
+.current-weather-info {
+  align-items: baseline;
+}
+
+#current-weather-icon {
+  width: 130px;
 }
 
 .local-date {
@@ -178,7 +191,8 @@ a:hover {
 
 #current-weather {
   text-transform: capitalize;
-  font-size: 26px;
+  font-size: 18px;
+  margin-top: -10px;
 }
 
 #github-link {
