@@ -67,6 +67,7 @@ function displayWeatherDetails(response) {
   displayHumidity(response);
   displayCityName(response);
   displayWeatherIcon(response);
+  displayWeatherBackground(response);
 }
 
 function handleSearch(event) {
@@ -143,7 +144,30 @@ function displayWeatherIcon(response) {
   );
 }
 
+//Change Background image based on weather
+let weathers = {
+  "01": "sunny",
+  "02": "few-clouds",
+  "03": "clouds",
+  "04": "clouds",
+  "09": "rain",
+  10: "rain",
+  11: "thunderstorm",
+  13: "snow",
+  50: "mist",
+};
+
+function displayWeatherBackground(response) {
+  let iconId = response.data.weather[0].icon;
+  let weatherId = iconId.substring(0, 2);
+  console.log(weatherId);
+  let backgroundImage = weathers[weatherId];
+  console.log(backgroundImage);
+  document.body.style.backgroundImage = `url("images/${backgroundImage}.jpg")`;
+}
+
 //
+
 celsius.addEventListener("click", handleCelsius);
 farenheit.addEventListener("click", handleFarenheit);
 

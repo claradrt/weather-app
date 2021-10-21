@@ -1,5 +1,6 @@
 body {
   background-image: url("../images/blue-sky-with-clouds.jpg");
+  background-position: center;
   color: white;
 }
 
