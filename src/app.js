@@ -140,7 +140,7 @@ function displayWeatherIcon(response) {
   let iconId = response.data.weather[0].icon;
   currentWeatherIcon.setAttribute(
     "src",
-    `http://openweathermap.org/img/wn/${iconId}@2x.png`
+    `https://openweathermap.org/img/wn/${iconId}@2x.png`
   );
 }
 
