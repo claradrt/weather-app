@@ -54,6 +54,7 @@ p {
 }
 
 .weather-app-wrapper {
+  background: #0000004d;
   border: 1px solid #ffffff;
   border-radius: 10px;
   margin: 10px auto;
