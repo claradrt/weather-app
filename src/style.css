@@ -140,7 +140,7 @@ p {
   margin: 45px auto;
 }
 
-.next-day {
+.next-day-forecast {
   border: 1px solid #ffffff;
   border-radius: 4px;
   text-align: center;
@@ -149,7 +149,7 @@ p {
   transition: all 200ms ease-in-out;
 }
 
-.next-day:hover {
+.next-day-forecast:hover {
   background-color: #063366;
 }
 
@@ -200,6 +200,10 @@ p {
   text-transform: capitalize;
   font-size: 18px;
   margin-top: -10px;
+}
+
+#weather-icon {
+  width: 60px;
 }
 
 #github-link {

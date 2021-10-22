@@ -22,6 +22,13 @@ function formatDate(date) {
   return `${day} ${hour}:${minutes}`;
 }
 
+function formatDayFromApi(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thur", "Fri", "Sat"];
+  return days[day];
+}
+
 let now = new Date();
 let currentDateAndTime = document.querySelector(".local-date");
 currentDateAndTime.innerHTML = formatDate(now);
@@ -72,6 +79,7 @@ function displayWeatherDetails(response) {
   displayCityName(response);
   displayWeatherIcon(response);
   displayWeatherBackground(response);
+  getWeatherForecast(response);
 }
 
 function handleSearch(event) {
@@ -83,6 +91,7 @@ function handleSearch(event) {
 }
 
 function handleApiError(err) {
+  debugger;
   if (err.response.status === 404) {
     alert("City not found");
   }
@@ -164,13 +173,49 @@ let weathers = {
 function displayWeatherBackground(response) {
   let iconId = response.data.weather[0].icon;
   let weatherId = iconId.substring(0, 2);
-  console.log(weatherId);
   let backgroundImage = weathers[weatherId];
-  console.log(backgroundImage);
   document.body.style.backgroundImage = `url("images/${backgroundImage}.jpg")`;
 }
 
-//
+//Weather forecast
+function getWeatherForecast(response) {
+  let latitude = response.data.coord.lat;
+  let longitude = response.data.coord.lon;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&units=${unit}&appid=${apiKey}`;
+  axios.get(apiUrl).then(displayWeatherForecast);
+}
+
+function displayWeatherForecast(response) {
+  let forecast = response.data.daily;
+  let days = ["Sat", "Sun", "Mon", "Tue"];
+
+  let forecastElement = document.querySelector(".forecast");
+  let forecastHTML = `<div class="row gx-5">`;
+
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 5) {
+      let day = `${formatDayFromApi(forecastDay.dt)}`;
+      let maxTemp = `${Math.round(forecastDay.temp.max)}`;
+      let minTemp = `${Math.round(forecastDay.temp.min)}`;
+      forecastHTML =
+        forecastHTML +
+        `<div class="col next-day-forecast">
+            <div class="day-of-week">${day}</div>
+            <img
+              src="https://openweathermap.org/img/wn/${forecastDay.weather[0].icon}@2x.png"
+              alt="weather-icon"
+              id="weather-icon"
+            />
+            <div class="row min-max-temp">
+              <div class="col-6 max-temp">${maxTemp}º</div>
+              <div class="col-6 min-temp">${minTemp}º</div>
+            </div>
+        </div>`;
+    }
+  });
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
 
 celsius.addEventListener("click", handleCelsius);
 farenheit.addEventListener("click", handleFarenheit);
