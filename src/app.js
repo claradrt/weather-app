@@ -49,7 +49,8 @@ function displayCurrentWeather(response) {
 
 let windSpeed = document.querySelector("#wind-speed");
 function displayWindSpeed(response) {
-  windSpeed.innerHTML = `Wind speed: ${response.data.wind.speed} m/s`;
+  let wind = Math.round(response.data.wind.speed * 3.6);
+  windSpeed.innerHTML = `Wind speed: ${wind} km/h`;
 }
 
 let humidity = document.querySelector("#humidity");
