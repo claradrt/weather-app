@@ -54,7 +54,7 @@ p {
 }
 
 .weather-app-wrapper {
-  background: #0000004d;
+  background: #5e58582e;
   border: 1px solid #ffffff;
   border-radius: 10px;
   margin: 10px auto;
@@ -170,6 +170,11 @@ p {
 
 .selected-unit {
   font-size: 20px;
+  cursor: auto;
+}
+
+.selected-unit:hover {
+  text-decoration: none;
 }
 
 #current-location-wrapper {
