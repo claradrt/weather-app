@@ -36,6 +36,9 @@ function displayCityInfo(city) {
 let temperature = document.querySelector("#current-temperature");
 function displayTemperature(response) {
   let localTemperature = Math.round(response.data.main.temp);
+  if (farenheit.className === "selected-unit") {
+    localTemperature = convertCelsiusToFarenheit(localTemperature);
+  }
   temperature.innerHTML = `${localTemperature}`;
 }
 
