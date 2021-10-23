@@ -47,7 +47,9 @@ function displayTemperature(response) {
   temperatureElement.innerHTML = `${localTemperature}`;
 }
 
-let currentWeatherElement = document.querySelector("#current-weather");
+let currentWeatherElement = document.querySelector(
+  "#current-weather-description"
+);
 function displayCurrentWeather(response) {
   currentWeatherElement.innerHTML = `${response.data.weather[0].description}`;
 }

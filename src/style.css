@@ -108,6 +108,25 @@ p {
   color: white;
 }
 
+#current-location-wrapper {
+  text-align: center;
+}
+
+#current-location {
+  display: inline-block;
+  margin: 0 auto;
+  font-size: 14px;
+}
+
+#current-location:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+#location-icon {
+  padding: 5px;
+}
+
 .current-temperature {
   margin: 0 auto;
   text-align: center;
@@ -119,21 +138,27 @@ p {
   top: -20px;
 }
 
+.weather-info-wrapper {
+  align-items: baseline;
+}
+
 .current-weather {
   width: fit-content;
   text-align: center;
 }
 
-.current-weather-details {
+.current-weather-metrics {
   text-align: right;
-}
-
-.current-weather-info {
-  align-items: baseline;
 }
 
 #current-weather-icon {
   width: 100px;
+}
+
+#current-weather-description {
+  text-transform: capitalize;
+  font-size: 18px;
+  margin-top: -10px;
 }
 
 .local-date {
@@ -154,14 +179,14 @@ p {
   background-color: #063366;
 }
 
-.weather-icon {
-  font-size: 20px;
-  margin: 20px auto;
-}
-
 .day-of-week {
   font-size: 20px;
   font-weight: 400;
+}
+
+.weather-icon {
+  font-size: 20px;
+  margin: 20px auto;
 }
 
 .min-max-temp {
@@ -169,33 +194,12 @@ p {
   color: white;
 }
 
-#current-location-wrapper {
-  text-align: center;
-}
-
-#current-location {
-  display: inline-block;
-  margin: 0 auto;
-  font-size: 14px;
-}
-
-#current-location:hover {
-  text-decoration: underline;
-  cursor: pointer;
-}
-
-#location-icon {
-  padding: 5px;
-}
-
-#current-weather {
-  text-transform: capitalize;
-  font-size: 18px;
-  margin-top: -10px;
-}
-
 #weather-icon {
   width: 60px;
+}
+
+.max-temp {
+  font-weight: bold;
 }
 
 #github-link {
