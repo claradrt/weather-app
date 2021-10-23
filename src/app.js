@@ -31,8 +31,8 @@ function formatDayFromApi(timestamp) {
 }
 
 let now = new Date();
-let currentDateAndTime = document.querySelector(".local-date");
-currentDateAndTime.innerHTML = formatDate(now);
+let currentDateAndTimeElement = document.querySelector(".local-date");
+currentDateAndTimeElement.innerHTML = formatDate(now);
 
 //GET AND DISPLAY WEATHER INFORMATION
 let unit = "metric";
@@ -41,31 +41,31 @@ function displayCityInfo(city) {
   axios.get(cityWeatherApi).then(displayWeatherDetails).catch(handleApiError);
 }
 
-let temperature = document.querySelector("#current-temperature");
+let temperatureElement = document.querySelector("#current-temperature");
 function displayTemperature(response) {
   let localTemperature = Math.round(response.data.main.temp);
-  temperature.innerHTML = `${localTemperature}`;
+  temperatureElement.innerHTML = `${localTemperature}`;
 }
 
-let currentWeather = document.querySelector("#current-weather");
+let currentWeatherElement = document.querySelector("#current-weather");
 function displayCurrentWeather(response) {
-  currentWeather.innerHTML = `${response.data.weather[0].description}`;
+  currentWeatherElement.innerHTML = `${response.data.weather[0].description}`;
 }
 
-let windSpeed = document.querySelector("#wind-speed");
+let windSpeedElement = document.querySelector("#wind-speed");
 function displayWindSpeed(response) {
   let wind = Math.round(response.data.wind.speed * 3.6);
-  windSpeed.innerHTML = `Wind speed: ${wind} km/h`;
+  windSpeedElement.innerHTML = `Wind speed: ${wind} km/h`;
 }
 
-let humidity = document.querySelector("#humidity");
+let humidityElement = document.querySelector("#humidity");
 function displayHumidity(response) {
-  humidity.innerHTML = `Humidity: ${response.data.main.humidity}%`;
+  humidityElement.innerHTML = `Humidity: ${response.data.main.humidity}%`;
 }
 
-let city = document.querySelector("#city-name");
+let cityElement = document.querySelector("#city-name");
 function displayCityName(response) {
-  city.innerHTML = `${response.data.name}, ${response.data.sys.country}`;
+  cityElement.innerHTML = `${response.data.name}, ${response.data.sys.country}`;
 }
 
 function displayWeatherDetails(response) {
@@ -107,17 +107,17 @@ function handleCurrentLocation(event) {
   navigator.geolocation.getCurrentPosition(handleUserPosition);
 }
 
-let currentLocation = document.querySelector("#current-location");
-currentLocation.addEventListener("click", handleCurrentLocation);
+let currentLocationElement = document.querySelector("#current-location");
+currentLocationElement.addEventListener("click", handleCurrentLocation);
 
-let searchForm = document.querySelector("#search-form");
-searchForm.addEventListener("submit", handleSearch);
+let searchFormElement = document.querySelector("#search-form");
+searchFormElement.addEventListener("submit", handleSearch);
 
 //Change weather icon based on weather
-let currentWeatherIcon = document.querySelector("#current-weather-icon");
+let currentWeatherIconElement = document.querySelector("#current-weather-icon");
 function displayWeatherIcon(response) {
   let iconId = response.data.weather[0].icon;
-  currentWeatherIcon.setAttribute(
+  currentWeatherIconElement.setAttribute(
     "src",
     `https://openweathermap.org/img/wn/${iconId}@2x.png`
   );
@@ -153,8 +153,6 @@ function getWeatherForecast(response) {
 
 function displayWeatherForecast(response) {
   let forecast = response.data.daily;
-  let days = ["Sat", "Sun", "Mon", "Tue"];
-
   let forecastElement = document.querySelector(".forecast");
   let forecastHTML = `<div class="row gx-5">`;
 
