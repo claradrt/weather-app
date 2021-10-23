@@ -115,6 +115,7 @@ p {
 
 .units {
   position: relative;
+  font-size: 20px;
   top: -20px;
 }
 
@@ -166,15 +167,6 @@ p {
 .min-max-temp {
   font-size: 15px;
   color: white;
-}
-
-.selected-unit {
-  font-size: 20px;
-  cursor: auto;
-}
-
-.selected-unit:hover {
-  text-decoration: none;
 }
 
 #current-location-wrapper {

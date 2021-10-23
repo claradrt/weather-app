@@ -25,7 +25,8 @@ function formatDate(date) {
 function formatDayFromApi(timestamp) {
   let date = new Date(timestamp * 1000);
   let day = date.getDay();
-  let days = ["Sun", "Mon", "Tue", "Wed", "Thur", "Fri", "Sat"];
+  console.log(day);
+  let days = ["Mon", "Tue", "Wed", "Thur", "Fri", "Sat", "Sun"];
   return days[day];
 }
 
@@ -43,9 +44,6 @@ function displayCityInfo(city) {
 let temperature = document.querySelector("#current-temperature");
 function displayTemperature(response) {
   let localTemperature = Math.round(response.data.main.temp);
-  if (farenheit.className === "selected-unit") {
-    localTemperature = convertCelsiusToFarenheit(localTemperature);
-  }
   temperature.innerHTML = `${localTemperature}`;
 }
 
@@ -114,38 +112,6 @@ currentLocation.addEventListener("click", handleCurrentLocation);
 
 let searchForm = document.querySelector("#search-form");
 searchForm.addEventListener("submit", handleSearch);
-
-//TEMPERATURE CONVERSIONS
-let celsius = document.querySelector("#celsius");
-let farenheit = document.querySelector("#farenheit");
-
-function convertCelsiusToFarenheit(temperature) {
-  let temperatureConverted = Math.round((temperature * 9) / 5 + 32);
-  return temperatureConverted;
-}
-
-function convertFarenheitToCelsius(temperature) {
-  let temperatureConverted = Math.round(((temperature - 32) * 5) / 9);
-  return temperatureConverted;
-}
-
-function handleCelsius(event) {
-  event.preventDefault;
-  if (celsius.className !== "selected-unit") {
-    temperature.innerHTML = convertFarenheitToCelsius(temperature.innerHTML);
-    celsius.classList.add("selected-unit");
-    farenheit.classList.remove("selected-unit");
-  }
-}
-
-function handleFarenheit(event) {
-  event.preventDefault;
-  if (farenheit.className !== "selected-unit") {
-    temperature.innerHTML = convertCelsiusToFarenheit(temperature.innerHTML);
-    farenheit.classList.add("selected-unit");
-    celsius.classList.remove("selected-unit");
-  }
-}
 
 //Change weather icon based on weather
 let currentWeatherIcon = document.querySelector("#current-weather-icon");
@@ -216,9 +182,6 @@ function displayWeatherForecast(response) {
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
 }
-
-celsius.addEventListener("click", handleCelsius);
-farenheit.addEventListener("click", handleFarenheit);
 
 displayCityInfo("Madrid");
 //navigator.geolocation.getCurrentPosition(handleUserPosition);
